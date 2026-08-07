@@ -3,53 +3,321 @@
 <head>
     <title>SafeLink</title>
     <style>
-        body{
-            font-family:Arial,sans-serif;
-            background:#f4f4f4;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-        }
-        .box{
-            background:white;
-            padding:30px;
-            border-radius:10px;
-            box-shadow:0 0 10px rgba(0,0,0,0.2);
-            text-align:center;
-            width:450px;
-        }
-        input{
-            width:95%;
-            padding:10px;
-            margin:10px 0;
-        }
-        button{
-            padding:10px 20px;
-            background:#007BFF;
-            color:white;
-            border:none;
-            cursor:pointer;
-        }
-        h1{
-            color:#007BFF;
-        }
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(-45deg,#081229,#102b5c,#1b3f84,#0a1c3a);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* NAVBAR */
+
+nav{
+    height:70px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 60px;
+    background:rgba(10,20,40,.45);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+nav h2{
+    font-size:34px;
+    color:#4f8cff;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#4f8cff;
+}
+
+/* MAIN */
+
+.container{
+    width:100%;
+    max-width:650px;
+
+    margin:20px auto;
+
+    padding:20px 25px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+h1{
+    text-align:center;
+    font-size:46px;
+    margin-bottom:4px;
+    color:#4f8cff;
+}
+
+.subtitle{
+    text-align:center;
+    color:#d8e4ff;
+    margin-bottom:12px;
+    font-size:18px;
+}
+
+/* INPUT */
+
+input{
+    width:100%;
+    padding:12px 15px;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    background:rgba(255,255,255,.08);
+    color:white;
+    font-size:17px;
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+input::placeholder{
+    color:#cfd8ff;
+}
+
+input:focus{
+    border-color:#4f8cff;
+    box-shadow:0 0 20px rgba(79,140,255,.35);
+}
+
+/* BUTTON */
+
+button{
+    display:block;
+    margin:14px auto;
+    padding:14px 38px;
+    border:none;
+    border-radius:35px;
+    background:linear-gradient(90deg,#2f6df6,#58a6ff);
+    color:white;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 0 25px rgba(70,130,255,.35);
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 35px rgba(70,130,255,.55);
+}
+
+/* RESULT CARD */
+
+.result-card{
+    margin-top:15px;
+    padding:16px;
+    border-radius:18px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.result-card h2{
+    text-align:center;
+    color:#5fa0ff;
+    margin-bottom:20px;
+}
+
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.info-row span{
+    color:#b8c7e8;
+}
+
+.info-row strong{
+    color:white;
+    text-align:right;
+}
+
+.high{
+    color:#ff4b4b;
+}
+
+.medium{
+    color:#ffc857;
+}
+
+.low{
+    color:#46d369;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:auto;
+    text-align:center;
+    padding:18px;
+    color:#b8c7e8;
+    font-size:14px;
+    line-height:0.9;
+    opacity:.85;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+nav{
+    padding:0 20px;
+}
+
+nav h2{
+    font-size:28px;
+}
+
+.container{
+    width:92%;
+    margin:20px auto;
+    padding:22px;
+}
+
+h1{
+    font-size:42px;
+}
+
+button{
+    width:100%;
+}
+
+.info-row{
+    flex-direction:column;
+    gap:6px;
+}
+
+.info-row strong{
+    text-align:left;
+}
+
+}
+input[type="search"]::-webkit-search-cancel-button{
+    -webkit-appearance: none;
+    appearance: none;
+
+    width:18px;
+    height:18px;
+    cursor:pointer;
+
+    background:
+    linear-gradient(45deg, transparent 42%, #ffffff 42%, #ffffff 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, #ffffff 42%, #ffffff 58%, transparent 58%);
+
+    border-radius:50%;
+}
     </style>
 </head>
 <body>
+<nav>
+    <div class="logo">
+    SafeLink
+    </div>
+    <div class="nav-links">
+        <a href="https://github.com/KavyGajjar/SafeLink" target="_blank">
+        GitHub
+        </a>
+    </div>
+</nav>
 
-<div class="box">
+<div class="container">
     <h1>SafeLink</h1>
+    <p class="subtitle">
+        AI Powered URL Phishing Detection
+    </p>
 
     <form method="POST">
-        <input type="text" name="url" placeholder="Enter URL here" required>
-        <br>
-        <button type="submit">Analyze URL</button>
+        <input
+            type="search"
+            name="url"
+            value="{{ url }}"
+            placeholder="Enter any website URL..."
+            required>
+        <button type="submit">
+            Analyze URL
+        </button>
     </form>
-
     {% if result %}
-        <h2>{{ result }}</h2>
+        <div class="result-card">
+            <h2>Analysis Result</h2>
+            <div class="info-row">
+                <span>Status</span>
+                <strong>{{ result }}</strong>
+            </div>
+            <div class="info-row">
+                <span>Confidence</span>
+                <strong>{{ confidence }}%</strong>
+            </div>
+            <div class="info-row">
+                <span>Risk Level</span>
+                {% if result == "Safe URL" %}
+                    <strong style="color:#22c55e;">LOW</strong>
+                {% else %}
+                    <strong style="color:#ef4444;">HIGH</strong>
+                {% endif %}
+            </div>
+            <div class="info-row">
+                <span>Threat</span>
+                {% if result == "Safe URL" %}
+                    <strong>No suspicious behaviour detected.</strong>
+                {% else %}
+                    <strong>Possible phishing website that may steal personal information.</strong>
+                {% endif %}
+            </div>
+            <div class="info-row">
+                <span>Recommendation</span>
+
+                {% if result == "Safe URL" %}
+                    <strong>You may continue with caution.</strong>
+                {% else %}
+                    <strong>Do not enter passwords or banking details.</strong>
+                {% endif %}
+            </div>
+        </div>
     {% endif %}
+<footer>
+    SafeLink
+    <br><br>
+    Machine Learning Based URL Threat Detection
+    <br><br>
+    Built using Flask • Python • Scikit-learn
+</footer>
+
 </div>
 
 </body>

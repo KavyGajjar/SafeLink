@@ -1,76 +1,98 @@
 # SafeLink
 
-SafeLink is a machine learning web application that detects whether a URL is safe or malicious. The application uses a trained Scikit-learn model and provides predictions through a Flask-based web interface.
+SafeLink is a web-based URL security analyzer that helps users identify potentially malicious websites using Machine Learning. It provides a simple and intuitive interface where users can submit a URL and receive an instant security assessment with confidence information and recommendations.
+The goal of SafeLink is to promote safer web browsing by allowing users to quickly evaluate suspicious links before visiting them.
 
-## Features
+---
 
-- Detects phishing and malicious URLs
-- Machine learning-based prediction
-- Simple and responsive web interface
-- Fast URL classification
-- Easy to run locally
+## Overview
 
-## Technologies Used
+Every day, users receive links through emails, social media platforms, messaging applications, and websites. Some of these links may lead to phishing pages or other malicious content designed to steal sensitive information.
+SafeLink analyzes a submitted URL and predicts whether it appears to be safe or malicious. Along with the prediction, the application presents a confidence score, threat assessment, risk level, and security recommendation to help users make informed decisions.
 
-- Python
-- Flask
-- Scikit-learn
+---
+
+## Highlights
+
+- Machine Learning based URL analysis
+- Instant prediction results
+- Confidence score for every analysis
+- Risk level assessment
+- Threat description
+- Security recommendations
+- Responsive and modern user interface
+- Clean and user-friendly experience
+- Online deployment for easy accessibility
+
+---
+
+## Technology Stack
+
+### Frontend
 - HTML
 - CSS
 - JavaScript
 
+### Backend
+- Python
+- Flask
+
+### Machine Learning
+- Scikit-learn
+- Pandas
+- NumPy
+- Joblib
+
+### Deployment
+- Render
+
+---
+
 ## Project Structure
 
-```
-SafeLink/
-│── app.py
-│── feature_extractor.py
-│── train_model.py
-│── model.pkl
-│── urlset.csv
-│── requirements.txt
-│── templates/
-│   └── index.html
-```
-
-## Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/KavyGajjar/SafeLink.git
+```text
+SafeLink
+│
+├── app.py
+├── feature_extractor.py
+├── train_model.py
+├── model.pkl
+├── requirements.txt
+├── urlset.csv
+├── README.md
+└── templates
+    └── index.html
 ```
 
-Install the required packages:
+---
 
-```bash
-pip install -r requirements.txt
-```
+## User Interface
 
-Run the application:
+The application is designed with a modern glassmorphism-inspired interface that focuses on simplicity and usability. Users can quickly analyze URLs, review prediction confidence, understand the associated risk level, and receive security recommendations through a clean and responsive layout.
 
-```bash
-python app.py
-```
+---
 
-Open your browser and visit:
+## Future Scope
 
-```
-http://127.0.0.1:5000
-```
+SafeLink can be further enhanced with additional capabilities such as:
 
-## Future Improvements
+- Browser extension integration
+- Real-time URL reputation services
+- Domain intelligence and reputation analysis
+- QR code URL scanning
+- Expanded security reporting
+- Improved prediction accuracy using larger datasets
+- Mobile application support
 
-- Deep learning-based URL detection
-- Browser extension
-- REST API support
-- Real-time threat intelligence integration
-- Improved feature engineering
+---
 
 ## Author
 
-Kavy Gajjar
-
-B.Tech Computer Science and Engineering
-
+**Kavy Gajjar**
+Minor Project
 Silver Oak University
+
+---
+
+## License
+This project is developed for educational and academic purposes.

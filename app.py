@@ -5,15 +5,20 @@ from feature_extractor import extract_features
 
 app = Flask(__name__)
 
+# Load trained model
 model = joblib.load("model.pkl")
+
 
 @app.route("/", methods=["GET", "POST"])
 def home():
+
     result = None
+    confidence = None
+    url = ""
 
     if request.method == "POST":
+
         url = request.form["url"]
-        import pandas as pd
 
         features = extract_features(url)
 
@@ -45,16 +50,20 @@ def home():
         prediction = model.predict(features_df)[0]
         probability = model.predict_proba(features_df)[0]
 
-        print(features_df)
-        print("Prediction:", prediction)
-        print("Probability:", probability)
+        confidence = round(max(probability) * 100, 2)
 
         if prediction == 1:
-            result = "⚠️ Malicious URL"
+            result = "Malicious URL"
         else:
-            result = "✅ Safe URL"
+            result = "Safe URL"
 
-    return render_template("index.html", result=result)
+    return render_template(
+        "index.html",
+        url=url,
+        result=result,
+        confidence=confidence
+    )
+
 
 if __name__ == "__main__":
     app.run(debug=True)
