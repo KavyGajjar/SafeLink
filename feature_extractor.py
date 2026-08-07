@@ -1,6 +1,8 @@
 from urllib.parse import urlparse
 
 def extract_features(url):
+    if not url.startswith(("http://", "https://")):
+        url = "https://" + url
     parsed = urlparse(url)
 
     features = [
