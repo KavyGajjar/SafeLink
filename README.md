@@ -89,7 +89,9 @@ SafeLink can be further enhanced with additional capabilities such as:
 ## Author
 
 **Kavy Gajjar**
+
 Minor Project
+
 Silver Oak University
 
 ---
