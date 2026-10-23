@@ -143,6 +143,7 @@ TRUSTED_DOMAINS = [
     "adobe.com",
     "zoom.us",
     "cloudflare.com",
+    "axis.com",
 
     # Education and learning
     "swayam.gov.in",
